@@ -1,0 +1,76 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #d6d1c5;
+  }
+  body {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(26, 24, 22, 0.045) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  ::selection {
+    background-color: #7a1f3130;
+  }
+  :focus-visible {
+    outline: 2px solid #7a1f31;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-parchment-50 border border-ink-900/[0.07] rounded-2xl shadow-panel transition-shadow duration-300;
+  }
+  .panel-hover {
+    @apply hover:shadow-elevated hover:-translate-y-0.5 transition-all duration-300;
+  }
+  .glass-panel {
+    @apply bg-parchment-50/70 backdrop-blur-md border border-parchment-50/40 rounded-2xl shadow-elevated;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-full text-sm font-medium transition-all duration-200
+      px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap active:scale-[0.98];
+  }
+  .btn-primary {
+    @apply btn bg-ink-900 text-parchment-50 hover:bg-ink-800 hover:shadow-elevated;
+  }
+  .btn-accent {
+    @apply btn bg-brass-500 text-parchment-50 hover:bg-brass-400 hover:shadow-elevated;
+  }
+  .btn-bronze {
+    @apply btn bg-bronze-500 text-ink-950 hover:bg-bronze-400 hover:shadow-glow;
+  }
+  .btn-secondary {
+    @apply btn bg-transparent border border-ink-900/15 text-ink-800 hover:bg-ink-900/5;
+  }
+  .btn-danger {
+    @apply btn bg-transparent border border-clay-500/40 text-clay-600 hover:bg-clay-500/10;
+  }
+  .btn-ghost {
+    @apply btn rounded-sm2 bg-transparent text-ink-700 hover:bg-ink-900/5;
+  }
+
+  .field-label {
+    @apply block text-xs font-medium uppercase tracking-wide text-ink-600 mb-1.5;
+  }
+  .field-input {
+    @apply w-full rounded-xl border border-ink-900/15 bg-parchment-50 px-3.5 py-2.5 text-sm text-ink-900
+      placeholder:text-ink-500 transition-colors duration-200
+      focus:border-brass-500 focus:outline-none focus:ring-1 focus:ring-brass-500;
+  }
+  .field-select {
+    @apply field-input pr-8 appearance-none bg-no-repeat;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  .editorial-label {
+    @apply font-mono text-[11px] uppercase tracking-[0.25em] text-bronze-600;
+  }
+}
