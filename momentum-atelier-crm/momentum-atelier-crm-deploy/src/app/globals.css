@@ -1,0 +1,62 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: #c8cbd1;
+  }
+  body {
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(32, 34, 38, 0.05) 1px, transparent 0);
+    background-size: 22px 22px;
+  }
+  ::selection {
+    background-color: #7a1f3140;
+  }
+  :focus-visible {
+    outline: 2px solid #7a1f31;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-parchment-50 border border-ink-900/10 rounded-sm2 shadow-panel;
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-sm2 text-sm font-medium transition-colors
+      px-3.5 py-2 disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap;
+  }
+  .btn-primary {
+    @apply btn bg-ink-900 text-parchment-50 hover:bg-ink-800;
+  }
+  .btn-accent {
+    @apply btn bg-brass-500 text-parchment-50 hover:bg-brass-400;
+  }
+  .btn-secondary {
+    @apply btn bg-transparent border border-ink-900/15 text-ink-800 hover:bg-ink-900/5;
+  }
+  .btn-danger {
+    @apply btn bg-transparent border border-clay-500/40 text-clay-600 hover:bg-clay-500/10;
+  }
+  .btn-ghost {
+    @apply btn bg-transparent text-ink-700 hover:bg-ink-900/5;
+  }
+
+  .field-label {
+    @apply block text-xs font-medium uppercase tracking-wide text-ink-600 mb-1.5;
+  }
+  .field-input {
+    @apply w-full rounded-sm2 border border-ink-900/15 bg-parchment-50 px-3 py-2 text-sm text-ink-900
+      placeholder:text-ink-500 focus:border-brass-500 focus:outline-none focus:ring-1 focus:ring-brass-500;
+  }
+  .field-select {
+    @apply field-input pr-8 appearance-none bg-no-repeat;
+  }
+
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+}
