@@ -18,7 +18,7 @@ export type RelatedEntity =
 export type TaskStatus = "pending" | "in_progress" | "completed";
 export type TaskPriority = "low" | "medium" | "high";
 
-export interface Company {
+export type Company = {
   id: string;
   owner_id: string;
   name: string;
@@ -33,9 +33,9 @@ export interface Company {
   notes: string | null;
   created_at: string;
   updated_at: string;
-}
+};
 
-export interface Contact {
+export type Contact = {
   id: string;
   owner_id: string;
   company_id: string | null;
@@ -47,9 +47,9 @@ export interface Contact {
   notes: string | null;
   created_at: string;
   updated_at: string;
-}
+};
 
-export interface Opportunity {
+export type Opportunity = {
   id: string;
   owner_id: string;
   name: string;
@@ -62,9 +62,9 @@ export interface Opportunity {
   notes: string | null;
   created_at: string;
   updated_at: string;
-}
+};
 
-export interface Activity {
+export type Activity = {
   id: string;
   owner_id: string;
   type: ActivityType;
@@ -75,9 +75,9 @@ export interface Activity {
   activity_date: string;
   created_at: string;
   updated_at: string;
-}
+};
 
-export interface Task {
+export type Task = {
   id: string;
   owner_id: string;
   title: string;
@@ -89,9 +89,9 @@ export interface Task {
   related_to_id: string | null;
   created_at: string;
   updated_at: string;
-}
+};
 
-export interface Conference {
+export type Conference = {
   id: string;
   owner_id: string;
   name: string;
@@ -102,7 +102,7 @@ export interface Conference {
   notes: string | null;
   created_at: string;
   updated_at: string;
-}
+};
 
 export const OPPORTUNITY_STAGES: { value: OpportunityStage; label: string }[] = [
   { value: "lead", label: "Lead" },

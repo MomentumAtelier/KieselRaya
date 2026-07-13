@@ -14,7 +14,7 @@ export function RecordModal({
 }: {
   title: string;
   fields: FieldConfig[];
-  initialValues: Record<string, string | number | null | undefined>;
+  initialValues: Record<string, unknown>;
   onClose: () => void;
   onSubmit: (values: Record<string, string | number | null>) => Promise<void>;
   submitLabel?: string;
