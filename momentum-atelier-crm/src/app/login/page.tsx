@@ -4,11 +4,17 @@ import { useState, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { createClient } from "@/lib/supabase/client";
 
+// Prevents Next.js from attempting to statically prerender this route at
+// build time. This page constructs a Supabase client, and static
+// prerendering runs the component on the server during `next build` —
+// forcing dynamic rendering means that only ever happens per-request,
+// after real runtime environment variables are guaranteed to be present.
+export const dynamic = "force-dynamic";
+
 type Mode = "sign-in" | "sign-up";
 
 export default function LoginPage() {
   const router = useRouter();
-  const supabase = createClient();
 
   const [mode, setMode] = useState<Mode>("sign-in");
   const [email, setEmail] = useState("");
@@ -24,6 +30,11 @@ export default function LoginPage() {
     setLoading(true);
 
     try {
+      // Created here, at the moment of submission, rather than during
+      // render — this only ever runs in the browser in response to a
+      // real user action, never during any server-side render pass.
+      const supabase = createClient();
+
       if (mode === "sign-in") {
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email,

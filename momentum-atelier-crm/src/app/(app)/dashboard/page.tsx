@@ -5,6 +5,10 @@ import { formatCurrency, formatDate } from "@/lib/utils";
 import { Building2, Users, ListChecks, TrendingUp } from "lucide-react";
 import { OPPORTUNITY_STAGES } from "@/types/database";
 
+// Explicit, in addition to the same setting already inherited from the
+// parent (app) layout — this page reads live per-user data on every visit.
+export const dynamic = "force-dynamic";
+
 export default async function DashboardPage() {
   const supabase = createClient();
 

@@ -4,6 +4,10 @@ import { formatCurrency } from "@/lib/utils";
 import { OPPORTUNITY_STAGES } from "@/types/database";
 import { DollarSign, Percent, Trophy, Building2 } from "lucide-react";
 
+// Explicit, in addition to the same setting already inherited from the
+// parent (app) layout — this page reads live per-user data on every visit.
+export const dynamic = "force-dynamic";
+
 const STAGE_BAR_COLOR: Record<string, string> = {
   lead: "bg-ink-500",
   qualified: "bg-brass-400",

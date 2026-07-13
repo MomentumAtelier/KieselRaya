@@ -3,6 +3,13 @@ import { createClient } from "@/lib/supabase/server";
 import { Sidebar } from "@/components/layout/Sidebar";
 import { Header } from "@/components/layout/Header";
 
+// Every route nested under this layout requires a real, per-request user
+// session to render at all. Forcing dynamic here also cascades to every
+// nested page (companies, contacts, opportunities, pipeline, activities,
+// tasks, conferences, dashboard, reports), so none of them are eligible
+// for build-time static prerendering either.
+export const dynamic = "force-dynamic";
+
 export default async function AppLayout({
   children,
 }: {
