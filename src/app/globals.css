@@ -4,7 +4,7 @@
 
 @layer base {
   * {
-    @apply border-ink-200;
+    border-color: #cac4ae;
   }
   body {
     background-image:
